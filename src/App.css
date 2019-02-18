@@ -31,3 +31,12 @@
     transform: rotate(360deg);
   }
 }
+
+.lasc_banner {
+  background-color: blue;
+  color: white;
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 2em;
+}

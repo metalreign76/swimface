@@ -1,0 +1,5 @@
+.infoPanel pre {
+    height: 200px;
+    overflow-y: scroll;
+    text-align: left;
+}

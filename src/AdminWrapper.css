@@ -1,0 +1,11 @@
+.adminWrapper {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.admin_infoPanel {
+  height: 220px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: blue;
+}
