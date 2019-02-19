@@ -16,6 +16,7 @@ class AdminWrapper extends Component {
     this.state = { liveInfo: "" };
 
     this.handle_UpdateMembers = this.handle_UpdateMembers.bind(this);
+    this.handle_UpdateSessions = this.handle_UpdateSessions.bind(this);
   }
 
   handle_UpdateMembers() {
@@ -30,6 +31,17 @@ class AdminWrapper extends Component {
     })
   }
 
+  handle_UpdateSessions() {
+    this.setState({liveInfo: "Fetching all session info!\n"})
+    axios.get('http://localhost:3001/sessions')
+    .then(response => {
+      this.setState({liveInfo: response.data.sessions.length + " sessions retrieved\n" 
+        + this.state.liveInfo})
+    })
+    .catch(error => {
+      this.setState({liveInfo: error + "\n" + this.state.liveInfo})
+    })
+  }
   render() {
     return (
       <div className="adminWrapper">
@@ -37,6 +49,7 @@ class AdminWrapper extends Component {
           <Row>
             <Col>
               <Button variant="primary" onClick={this.handle_UpdateMembers}>Update Members</Button>
+              <Button variant="primary" onClick={this.handle_UpdateSessions}>Update Sessions</Button>
             </Col>
             <Col className="admin_infoPanel">
               <InfoPanel info={this.state.liveInfo}></InfoPanel>
